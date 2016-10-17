@@ -30,6 +30,15 @@ nav{
   margin:0;
 }
 
+
+#navBar a:link, #navBar a:visited
+{
+   color:#F0FFFF;
+   background:grey;
+}
+
+
+
 #userControler{
   width:30%;
   height: 100%;
