@@ -54,26 +54,27 @@ nav{
 }
 
 #searchBar{
-  display:inline-block;
+  /*display:inline-block;*/
   float:left;
   padding:1% 0 1% 0;
-  width:98%;
+  width:100%;
   white-space:nowrap;
 }
 
 #searchBar input{
-  width:70%;
+  width:50%;
   float:left;
   font-size: 17px;
   padding: 10px 0 10px 0;
 }
 
 #searchBar button{
-  width:29%;
+  width:25%;
+
   color: #736a73;
   font-size: 20px;
   background: #f2faff;
-  padding: 10px 0 10px 0;
+  padding: 10px 0 13px 0;
 }
 
 #lateralPanel{
@@ -87,3 +88,10 @@ nav{
   padding-left: 1%;
 }
 
+#searchBar select{
+  width: 20%;
+  float: left;
+  padding: 12px 20px;
+  margin: 0px;
+  box-sizing: border-box;
+}
