@@ -1,0 +1,88 @@
+body{
+  background-color: pink;
+  width : 100%;
+  margin :0;
+}
+/* Navigation */
+nav{
+  width:100%;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5%;
+  padding: 0;
+  background-color: grey;
+  border: 1px solid black;
+  white-space:nowrap;
+}
+
+#navBar{
+  width:69%;
+  height: 100%;
+  border-right: 1px solid black;
+  margin:0;
+  display : inline-block;
+}
+
+#userControler{
+  width:30%;
+  height: 100%;
+  margin:0;
+  display : inline-block;
+}
+
+/* Content */
+#content{
+  background-color: grey;
+  margin : auto;
+  width: 80%;
+  padding: 0;
+  min-height: 600px;
+  border: 1px solid black;
+  white-space:nowrap;
+}
+
+#mainPanel{
+  float:left;
+  border: 1px solid black;
+  white-space: pre-line;
+  display:block
+  margin:0;
+  min-height: 600px;
+  width : 68.55%;
+  padding-left: 1%;
+}
+
+#searchBar{
+  display:inline-block;
+  float:left;
+  padding:1% 0 1% 0;
+  width:98%;
+  white-space:nowrap;
+}
+
+#searchBar input{
+  width:70%;
+  float:left;
+  font-size: 17px;
+  padding: 10px 0 10px 0;
+}
+
+#searchBar button{
+  width:29%;
+  color: #736a73;
+  font-size: 20px;
+  background: #f2faff;
+  padding: 10px 0 10px 0;
+}
+
+#lateralPanel{
+  border: 1px solid black;
+  color:white;
+  float:right;
+  white-space: pre-line;
+  min-height: 600px;
+  width:29%;
+  margin:0 0 0 0;
+  padding-left: 1%;
+}
