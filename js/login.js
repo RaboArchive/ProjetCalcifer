@@ -28,23 +28,41 @@ function checkPasswordMatch() {
 }
 
 function login(){
-    $.post('../ajax/connexion.php', // Un script PHP que l'on va créer juste après
+    $.post('ajax/connection.php', // Un script PHP que l'on va créer juste après
       {
         pseudo : $("#pseudo").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
         pass : $("#pass").val()
       },
       function(data){
-        if(data == 'Success'){
+        console.log(data);
+        if(data["status"] == 'success'){
           // Le membre est connecté. Ajoutons lui un message dans la page HTML.
-          $(document).write("<p>Vous avez été connecté avec succès !</p>");
+          //console.log(data);
+          alert("success");
+          //$(document).write("<p>Vous avez été connecté avec succès !</p>");
         }
         else{
           // Le membre n'a pas été connecté. (data vaut ici "failed")
-          $(document).write("<p>Erreur lors de la connexion...</p>");
+          //console.log(data);
+          alert("failed");
+          //$(document).write("<p>Erreur lors de la connexion...</p>");
         }
       },
       'text'
     );
+
+    /*$.ajax({	type: "POST",
+          url: "../ajax/connexion.php",
+          data: data, // On passe les informations saisies à l'écran
+          success: function(data) {
+            console.log(JSON.parse(data));
+            var result = JSON.parse(data) ;
+            displayResultContent(result);
+          },
+          error: function() {
+            alert('Erreur dans la requ�te au serveur.');
+          }
+    });*/
   }
 
 function signup(){

@@ -1,7 +1,7 @@
 <?php
 
 	// Vérification de la validité des informations
-	if(isset($_POST["pseudo"]) && isset($_POST["pass_hash"])){//les variables minimales
+	if(isset($_POST["pseudo"]) && isset($_POST["pass"])){//les variables minimales
 
 		$_POST["SOLDE"]=15;
 
@@ -14,11 +14,11 @@
 
 		// Insertion
 
-		$req = $bdd->prepare('INSERT INTO user(LOGIN, MDP, SOLDE, MAIL,VILLE,DATEINS) VALUES(:pseudo, :pass,:solde, :email, :ville, CURDATE())');
+		$req = $bdd->prepare('INSERT INTO user(LOGIN, MDP, SOLDE, MAIL,VILLE,DATEINS) VALUES(:pseudo, :pass,:solde, :email, :ville, DATE())');
 
 		$req->execute(array(
 		    'pseudo' => $_POST["pseudo"],
-		    'pass' => $_POST["pass_hash"],
+		    'pass' => $_POST["pass"],
 		    'solde'=> $_POST["SOLDE"],
 		    'email' => $_POST["MAIL"],
 		    'ville'=> $_POST["VILLE"],
