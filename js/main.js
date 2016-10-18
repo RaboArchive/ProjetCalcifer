@@ -1,16 +1,12 @@
-$( document ).ready(function() {
-    $("#content").load("./pages/accueil.html");
-});
-
 function launch(){
-  var query = $("#query").val();
+  var query = $("#srchFld").val();
   var data ='data=' + query;
 
   $.ajax({	type: "POST",
         url: "ajax/getRequete.php",
         data: data, // On passe les informations saisies à l'écran
         success: function(data, textStatus, jqXHR) {
-          console.log(result);
+          console.log(JSON.parse(data));
           var result = JSON.parse(data) ;
           displayResultContent(result);
         },
@@ -21,17 +17,30 @@ function launch(){
 }
 
 function displayResultContent(data){
-  $("#result").empty();
+  $("#content").empty();
+  var toPrint = '<h4> Résultats de la recherche </h4> <ul class="thumbnails">';
   for (var i=0; i < data.livres.length; i++) {
-      var toPrint = "<div onclick=wantMore("+data.livres[i].idlivre+")> Nom :" + data.livres[i].nom + " | Auteur : " + data.livres[i].auteur;
-      if(data.livres[i].etat != null){
-        toPrint += " | Etat : " + data.livres[i].etat;
-      }
-      if(data.livres[i].val != null){
-        toPrint += " | Valeur : " + data.livres[i].val;
-      }
-      $("#result").append(toPrint+"</div><br>");
+	toPrint += '<li class="span3">';
+	toPrint += '<div class="thumbnail">';
+	toPrint += "<a href=\"product.html?id="+data.livres[i].idlivre+"\">";
+	//toPrint += "<img src=\""+data.livres[i].url+"\" alt=\"\"/></a>";
+	toPrint += "<img src=\"jambe.html\" alt=\"\"/></a>";
+	toPrint += '<div class="caption">';
+	toPrint += "<span onclick=\"wantMore("+data.livres[i].idlivre+")\"><h5>"+data.livres[i].nom+"</h5></span>";
+	toPrint += "<p>"+data.livres[i].resume+"</p>";
+
+	toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].idlivre+'">';
+	toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" href="#">Ajouter <i class="icon-shopping-cart"></i></a>';
+	if(data.livres[i].val != null){
+	toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
+	} else {
+	toPrint +='</h4>';
 	}
+
+	toPrint += "</div></div></li>";
+
+	}
+	$("#content").append(toPrint);
 }
 
 function wantMore(id){
@@ -52,6 +61,7 @@ function wantMore(id){
 }
 
 function displayResultLatPanel(data){
+  /*
   $("#lateralPanel").empty();
       var toPrint = "<div><h3> Détails : </h3> Nom :" + data.livres[0].nom + " | Auteur : " + data.livres[0].auteur;
       if(data.livres[0].etat != null){
@@ -68,4 +78,20 @@ function displayResultLatPanel(data){
       }
       toPrint += "<br><br><button onclick=addPanier()> Je veux ! </button>";
       $("#lateralPanel").append(toPrint+"</div><br>");
+*/
+
+    $("#sidebar").empty();
+    //toPrint += "<img src=\""+data.livres[i].url+"\" alt=\"\"/></a>";
+    var toPrint = '<h4>Résultat détaillé</h4>';
+    toPrint +='<div class="thumbnail">';
+    toPrint += '<div class="caption">';
+    toPrint += '<h5>'+data.livres[0].nom+'</h5>';
+    toPrint += '<h4>'+data.livres[0].auteur+'</h4>';
+    toPrint += '<p>'+data.livres[0].resume+'</p>';
+
+    toPrint += '</div></div>';
+
+    $("#sidebar").append(toPrint);
+
+
 }
