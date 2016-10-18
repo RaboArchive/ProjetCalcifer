@@ -34,14 +34,6 @@ if(isset($_POST["TITRE"]) && isset($_POST["AUTEUR"]) && isset($_POST["ID"]))
 
   $resultat = $req->fetch();
   if ($resultat) {// si la requete réussie
-    $requete = "SELECT MAX(id) FROM livre;"; //Préparation de la requête
-    $livre = $db->query($requete);
-    $req2 = $bdd->prepare('INSERT INTO LIVREDEP(IDLIVRE,IDUSER) VALUES(:idl,:idu)');
-    $req2->execute(array(
-      'idl' => $livre,
-      'idu' => $_POST["USER"]));
-      $resultat2 = $req2->fetch();
-
        $result["status"]="success";
   } else {
     $result["status"]="error";
