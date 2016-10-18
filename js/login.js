@@ -1,8 +1,10 @@
+var idUser;
+
 // Toggle Function
 $('.toggle').click(function(){
   // Switches the Icon
   $(this).children('i').toggleClass('fa-pencil');
-  // Switches the forms  
+  // Switches the forms
   $('.form').animate({
     height: "toggle",
     'padding-top': 'toggle',

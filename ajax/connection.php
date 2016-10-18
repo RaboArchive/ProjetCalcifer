@@ -1,12 +1,12 @@
-<?php 
+<?php
 require_once("../data/db/DAO.class.php");
 //Verification de l'existence du pseudo et mdp :
-if(isset($_POST["pseudo"])&&isset($POST["pass_hash"])){
+if(isset($_POST["pseudo"])&&isset($POST["pass"])){
 // Vérification des identifiants
-$req = $db->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
+$req = $db->prepare('SELECT id FROM user WHERE pseudo = :pseudo AND pass = :pass');
 $req->execute(array(
     'pseudo' => $_POST["pseudo"],
-    'pass' => $POST["pass_hash"]));
+    'pass' => $POST["pass"]));
 
 $resultat = $req->fetch();
 

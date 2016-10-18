@@ -15,10 +15,10 @@ if(isset($data)){
       $livre["idlivre"] = $livreBD["ID"];
       $livre["nom"] = $livreBD["NOM"];
       $livre["auteur"] = $livreBD["AUTEUR"];
-      $livre["val"] = $livreBD["VALEUR"];
-      $livre["datepub"] = $livreBD["DATEPUB"];
-      $livre["etat"] = $livreBD["ETAT"];
-      $livre["resume"] = $livreBD["RESUME"];
+      $livre["val"] = $livreBD["VALEUR"];//optionel
+      $livre["datepub"] = $livreBD["DATEPUB"];//optionel
+      $livre["etat"] = $livreBD["ETAT"];//optionel
+      $livre["resume"] = $livreBD["RESUME"];//optionel
       array_push($result["livres"], $livre); //Ajoute le livre créé à la liste de livres
     }
   }
