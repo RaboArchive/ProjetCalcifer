@@ -1,3 +1,16 @@
+function init(){
+
+  $.ajax({	type: "POST",
+        url: "ajax/getSixRequete.php",
+        success: function(data, textStatus, jqXHR) {
+          displayLastDepot(data);
+        },
+        error: function() {
+          alert('Erreur dans la requ�te au serveur.');
+        }
+  });
+}
+
 function launch(){
   var query = $("#srchFld").val();
   var data ='data=' + query;
@@ -14,6 +27,36 @@ function launch(){
           alert('Erreur dans la requ�te au serveur.');
         }
   });
+}
+
+function displayLastDepot(data){ // Affiche les derniers livres deposés par défaut sur la page d'accueil
+  $("#content").empty();
+    var toPrint = '<h4> Derniers livres ajoutés </h4> <ul class="thumbnails">';
+    for (var i=0; i < data.livres.length; i++) {
+      //structure
+      toPrint += '<li class="span3">';
+      toPrint += '<div class="thumbnail">';
+      //?
+      toPrint += "<a href=\"product.html?id="+data.livres[i].titre+"\">";
+      //l'image
+      toPrint += "<img src=\""+data.livres[i].image+"\" alt=\"\"/></a>";
+
+      toPrint += '<div class="caption">';
+      //toPrint += "<span onclick=\"wantMore("+data.livres[i].idlivre+")\"><h5>"+data.livres[i].nom+"</h5></span>";
+
+
+      toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
+      toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" href="#">Ajouter <i class="icon-shopping-cart"></i></a>';
+      if(data.livres[i].val != null){
+        toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
+      } else {
+        toPrint +='</h4>';
+    }
+
+    toPrint += "</div></div></li>";
+
+  }
+  $("#content").append(toPrint);
 }
 
 function displayResultContent(data){
