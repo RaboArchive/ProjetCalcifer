@@ -10,6 +10,7 @@ function launch(){
         url: "ajax/getRequete.php",
         data: data, // On passe les informations saisies à l'écran
         success: function(data, textStatus, jqXHR) {
+          console.log(result);
           var result = JSON.parse(data) ;
           displayResultContent(result);
         },
@@ -21,7 +22,7 @@ function launch(){
 
 function displayResultContent(data){
   $("#result").empty();
-  for (var i=0; i < 6; i++) {
+  for (var i=0; i < data.livres.length; i++) {
       var toPrint = "<div onclick=wantMore("+data.livres[i].idlivre+")> Nom :" + data.livres[i].nom + " | Auteur : " + data.livres[i].auteur;
       if(data.livres[i].etat != null){
         toPrint += " | Etat : " + data.livres[i].etat;

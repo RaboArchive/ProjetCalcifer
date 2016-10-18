@@ -1,5 +1,5 @@
 <?php
-require_once("/var/www/html/ProjetCalcifer/ajax/DAO.class.php");
+require_once("./DAO.class.php");
 
 $result = array() ;               //Création du tableau à envoyer
 $result["status"] = "success";    //Initialisation du premier élément avec "sucess"
