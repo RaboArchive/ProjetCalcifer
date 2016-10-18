@@ -1,5 +1,5 @@
 <?php
-            $database = 'sqlite:/var/www/html/ProjetCalcifer/data/calcifer.db';
+            $database = 'sqlite:../data/calcifer.db';
             try {
                $db = new PDO($database);
                if (!$db) {die ("Database error");}
