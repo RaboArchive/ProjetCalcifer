@@ -3,7 +3,8 @@ function init(){
   $.ajax({	type: "POST",
         url: "ajax/getSixRequete.php",
         success: function(data, textStatus, jqXHR) {
-          displayLastDepot(data);
+          var result = JSON.parse(data) ;
+          displayLastDepot(result);
         },
         error: function() {
           alert('Erreur dans la requ�te au serveur.');
