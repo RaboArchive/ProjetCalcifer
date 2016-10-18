@@ -1,6 +1,5 @@
 //Bootsshop-----------------------//
-$(document).ready(function(){
-	/* carousel of home page animation */
+/*(document).ready(function(){
 	$('#myCarousel').carousel({
 	  interval: 4000
 	})
@@ -55,4 +54,4 @@ $(document).ready(function(){
 		}
 	});
 
-});
+});*/
