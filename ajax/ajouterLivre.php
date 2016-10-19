@@ -2,21 +2,26 @@
 require_once("./DAO.class.php");
 $result = array() ;               //Création du tableau à envoyer
 $result["status"] = "success";    //Initialisation du premier élément avec "sucess"
-$data1 = $_POST["data"];
 
-$data=json_decode($data1);
+$USER = $_POST["ID"];
+$ISBN = $_POST["ISBN"];
+$TITRE = $_POST["TITRE"];
+$ETAT = $_POST["ETAT"];
+$PUB = $_POST["DATEPUB"];
+$AUTEUR = $_POST["AUTEUR"];
+$EDITION = $_POST["EDITION"];
+$COLLECTION = $_POST["COLLECTION"];
+$VALEUR = $_POST["VALEUR"];
+$RESUME = $_POST["RESUME"];
+$IMAGE = $_POST["URL"];
 
-$ISBN = $data.ISBN;
-$TITRE = $data.titre;
-$AUTEUR = $data.auteur;
-$EDITION = $data.edition;
-$COLLECTION = $data.collection;
-$VALEUR = $data.valeur;
-$RESUME = $data.resume;
-$IMAGE = $data.image;
+  $requeteInsDepose = "INSERT INTO livredepose VALUES ($ISBN,$USER,\"$ETAT\",date('now'));";
+  echo $requeteInsDepose;
+  $requeteInsLivre = "INSERT INTO livre VALUES ($ISBN,\"$TITRE\",\"$AUTEUR\",\"$EDITION\",\"$COLLECTION\",$VALEUR,\"$RESUME\",\"$IMAGE\");";
+  echo $requeteInsLivre;
 
-if(isset($data)){
-  $requete = "Insert into livreSouhaite values ($ISBN,$TITRE,$AUTEUR,$EDITION,$COLLECTION,$VALEUR,$RESUME,$IMAGE)";
-  $db->query($requete); //Récupération des informations
-}
+  $db->query($requeteInsLivre);
+  $db->query($requeteInsDepose);
+
+  echo json_encode($result);
 ?>

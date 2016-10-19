@@ -56,8 +56,7 @@ function creerLivre() {
 
   var data ="ISBN="+$("#ISBN").val()+"&ETAT="+$("#etat").val()+"&TITRE="+$("#titre").val()+"&AUTEUR="+$("#auteur").val()+"&VALEUR="+$("#valeur").val()+"&DATEPUB="+$("#datepub").val();
   data +="&EDITION="+$("#edition").val()+"&COLLECTION="+$("#collection").val();
-  data +="&RESUME="+$("#resume").val();
-
+  data +="&RESUME="+$("#resume").val()+"&URL="+$("#image").val()+"&ID="+idUser;
   console.log(data);
   $.ajax({	type: "POST",
         url: "ajax/ajouterLivre.php",
