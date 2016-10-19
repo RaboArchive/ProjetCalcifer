@@ -45,8 +45,8 @@ function connect() {
 }
 
 function disconnect() {
-  $(".disloger").css("display","none");
-  $("#disconnectButton").css("display","none");
+  $(".disloger").remove();
+  $("#disconnectButton").remove();
   $(".nloger").css("display","inline-block");
   $(".loger").css("display","none");
   $.cookie("user", null);
