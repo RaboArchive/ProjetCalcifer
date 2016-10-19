@@ -61,13 +61,13 @@
       <div class="toggle"><i class="fa fa-times fa-pencil"></i>
         <div class="tooltip">S'inscrire</div>
       </div>
-      <div class="form" onsubmit="return false">
+      <div class="form" onsubmit="login()">
         <h2>Se connecter</h2>
         <form method="post">
           <input id="pseudo" required type="text" placeholder="Pseudonyme" name="pseudo" />
-          <input id="pass" required type="test" placeholder="Mot de passe" name="pass_hash" /><br>
+          <input id="pass" required type="text" placeholder="Mot de passe" name="pass_hash" /><br>
           <input id="rememberme" type="checkbox">   Se souvenir de moi
-          <button onclick="login()" type="submit" id="bouton-login">Connexion</button>
+          <button type="submit" id="bouton-login">Connexion</button>
         </form>
       </div>
       <div class="form">
