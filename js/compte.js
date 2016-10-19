@@ -6,8 +6,7 @@ function load_compte()
 
 function load_wishlist(){
   $("#content").empty();
-  var query = $("#srchFld").val();
-  var data ='data=' + query;
+  var data = idUser;
   $("#content").empty();
 
   $.ajax({	type: "POST",
