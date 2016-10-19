@@ -157,3 +157,9 @@
 #newLogin > li a:hover:not(.active) {
     background-color: #111;
 }
+ .Tamere:not(.uneditable-input)
+ {
+   text-align: center;
+   display : block;
+   margin : auto;
+ }
