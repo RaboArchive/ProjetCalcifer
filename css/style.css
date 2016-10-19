@@ -163,7 +163,14 @@
    display : block;
    margin : auto;
  }
-
+.contact:hover
+{
+  border: none;
+}
+.contact
+{
+  border : none;
+}
  .Tameretitre
  {
    font-weight: bold;
