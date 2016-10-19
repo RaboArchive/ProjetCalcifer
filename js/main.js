@@ -16,7 +16,7 @@ function init(){
           displayLastDepot(result);
         },
         error: function() {
-          alert('Erreur dans la requ�te au serveur.');
+          alert('Erreur dans la requête au serveur.');
         }
   });
   if ($.cookie("user")) {
@@ -56,7 +56,7 @@ function disconnect() {
 
 function displayLastDepot(data){ // Affiche les derniers livres deposés par défaut sur la page d'accueil
   $("#content").empty();
-    var toPrint = '<h4> Derniers livres ajoutés </h4> <ul class="thumbnails">';
+    var toPrint = '<h4> Derniers livres déposés </h4> <ul class="thumbnails">';
     for (var i=0; i < data.livres.length; i++) {
       //structure
       toPrint += '<li class="span3">';
