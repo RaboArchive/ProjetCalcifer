@@ -1,3 +1,5 @@
+
+
 // Toggle Function
 $('.toggle').click(function(){
   // Switches the Icon
@@ -24,6 +26,7 @@ function checkPasswordMatch() {
 function login(){
     var login = $("#pseudo").val();
     var mdp = $("#pass").val();
+    //console.log(login);
     var data = "login="+login+"&mdp="+mdp;
     $.ajax({	type: "POST",
           url: "ajax/connection.php",
@@ -32,9 +35,13 @@ function login(){
             console.log(JSON.parse(data));
             var result = JSON.parse(data) ;
             changeUI(result);
+            $('#form_login').attr("onsubmit", "return true;")
+            $('#form_login').submit();
           },
           error: function() {
-            alert('Erreur dans la requ�te au serveur.');
+            $('#form_login').attr("onsubmit", "return true;")
+            $('#form_login').submit();
+            alert("Pseudo ou mot de passe incorrect");
           }
     });
   }
@@ -46,14 +53,12 @@ function login(){
       loginUser=data.login;
       soldeUser=parseInt(data.solde);
       if($('#rememberme').is(":checked")){
-
         var user = {
           log : loger,
           id : idUser,
           login : loginUser,
           solde : soldeUser
         };
-
         if($.cookie("user")){
            $.removeCookie("user");
         }

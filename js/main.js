@@ -28,7 +28,7 @@ function init(){
       loger = val.log;
 
       $(".loger").css("display","inline-block");
-      $(".nloger").css("display","none");
+      //$(".nloger").css("display","none");
     }
   }
 }
