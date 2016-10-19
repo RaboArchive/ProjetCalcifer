@@ -40,7 +40,7 @@ function login(){
   }
 
   function changeUI(data){
-    if(data.log == true){
+    if(data.log == "true"){
       loger=true;
       idUser=data.id;
       loginUser=data.login;
