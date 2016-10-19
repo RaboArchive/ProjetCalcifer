@@ -1,0 +1,22 @@
+
+- Introduction
+
+- 1. Objectifs
+      1. Idée
+      2. Existant : différence, points +, points -
+- 2. Organisation
+      1. Choix des outils : -Html/CSS
+                            -Php/Js
+                            -bdd -> sqlite
+                            -'Drupal'
+                            -GitHub -> transition : communication
+      2. Répartion Du travail : -travail ensemble ds la même salle
+                                -Jordan(Tom) : Chef De Projet :  -Répartition du travail
+                                                            -Avantages
+                                                            -Difficultés
+- 3. Réalisation
+      Intro/Ouverture : C
+      1. Démo Scénario Courte : fonctionnement de base du site
+      2. Démo Détaillé avec explications techniques
+          -Intro : Bootstrap av/ap
+          -Chacun explique 1/2 fct
