@@ -1,16 +1,18 @@
 function load_compte()
 {
   $("#content").empty();
-  $("#content").load("pages/compte.html",on_load());
-  on_load_js();
+  $("#content").load("pages/compte.html",function(){
+    document.getElementById("pseudo").value = "BLANC DE POULET";
+    document.getElementById("newemail").value = "SAUCE BLANCHE";
+    document.getElementById("newville").value = "MOULE FRITE";
+
+  });
+
 }
 function on_load(){
   var temp = "Tête de bite";
   $("#niketamere").val();
   var x = document.getElementById("content");
-  $("#niketamere").val(temp);
-  $("#newemail").attr('value',temp);
-  $("#newville").val("MA GROSSE VILLE");
 
 
 }
