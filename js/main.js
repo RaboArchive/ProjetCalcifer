@@ -26,12 +26,33 @@ function init(){
       loginUser = val.login;
       soldeUser = val.solde;
       loger = val.log;
-
-      $(".loger").css("display","inline-block");
-      //$(".nloger").css("display","none");
+      connect();
     }
   }
 }
+
+function connect() {
+        $(".loger").css("display","inline-block");
+        $(".nloger").css("display","none");
+
+        var toPrint = '<li class="disloger">';
+        toPrint += '<div id="disconnect"><h5>Bienvenue '+loginUser+' !</h5>';
+        toPrint += '<p>Solde: '+soldeUser+' points</p>';
+        toPrint += '</div></li>';
+        toPrint += '<li id="disconnectButton" class="center-block"> <button class="btn btn-primary center-block" onclick="disconnect()">Déconnexion</button></li>';
+
+        $("#topMenu").append(toPrint);
+}
+
+function disconnect() {
+  $(".disloger").css("display","none");
+  $("#disconnectButton").css("display","none");
+  $(".nloger").css("display","inline-block");
+  $(".loger").css("display","none");
+  $.cookie("user", null);
+  $.removeCookie("user");
+}
+
 
 function displayLastDepot(data){ // Affiche les derniers livres deposés par défaut sur la page d'accueil
   $("#content").empty();
