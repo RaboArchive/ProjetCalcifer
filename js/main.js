@@ -19,6 +19,17 @@ function init(){
           alert('Erreur dans la requ�te au serveur.');
         }
   });
+
+
+  if ($.cookie("user")) {
+    var val = JSON.parse($.cookie("user"));
+    if (val.log) {
+      idUser = val.id;
+      loginUser = val.login;
+      soldeUser = val.solde;
+      loger = val.log;
+    }
+  }
 }
 
 function launch(){
