@@ -28,6 +28,11 @@ function init(){
       loginUser = val.login;
       soldeUser = val.solde;
       loger = val.log;
+
+      $(".loger").css("display","true");
+      $(".nloger").css("display","none");
+
+
     }
   }
 }
