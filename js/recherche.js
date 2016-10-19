@@ -91,8 +91,8 @@ function displayResultDB(data){
 }
 
 function ajouterListeSouhait(isbn){
-  var data["ISBN"] = isbn;
-  data["USER"] = idUser;
+  var data ="ISBN="+isbn+"&USER="+idUser;
+
   $.ajax({	type: "POST",
         url: "ajax/ajouterLivreWishListe.php",
         data: data, // On passe les informations saisies à l'écran
