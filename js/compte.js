@@ -59,7 +59,7 @@ function displayListeSouhait(data){
     toPrint += '<div class="caption">';
 
     toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
-    toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" href="#">Ajouter <i class="icon-shopping-cart"></i></a>';
+    toPrint += '<i class="icon-zoom-in"></i></a>';
     if(data.livres[i].val != null){
       toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
     } else {
