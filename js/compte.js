@@ -1,13 +1,31 @@
 function load_compte()
 {
   $("#content").empty();
-  $("#content").load("pages/compte.html");
+  $("#content").load("pages/compte.html",function(){
+    document.getElementById("pseudo").value = "BLANC DE POULET";
+    document.getElementById("newemail").value = "SAUCE BLANCHE";
+    document.getElementById("newville").value = "MOULE FRITE";
+
+  });
+
+}
+function on_load(){
+  var temp = "Tête de bite";
+  $("#niketamere").val();
+  var x = document.getElementById("content");
+
+
+}
+function on_load_js()
+{
+  document.getElementById("niketamere").value("WALLAH");
+
 }
 
 function load_wishlist(){
   $("#content").empty();
-  var data = idUser;
-  $("#content").empty();
+  var query = idUser;
+  var data ='data=' + query;
 
   $.ajax({	type: "POST",
         url: "ajax/getLivresSouhaites.php",
