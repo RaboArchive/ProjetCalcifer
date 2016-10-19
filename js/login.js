@@ -1,5 +1,3 @@
-
-
 // Toggle Function
 $('.toggle').click(function(){
   // Switches the Icon
@@ -41,8 +39,7 @@ function login(){
             //$('#form_login').submit();
           },
           error: function() {
-            //$('#form_login').attr("onsubmit", "return true;")
-            //$('#form_login').submit();
+
           }
     });
   }
