@@ -1,35 +1,22 @@
 <?php
 require_once("./DAO.class.php");
-//Verification de l'existence du pseudo et mdp :
-if(isset($_POST["pseudo"]) && isset($_POST["pass"])){
+
+$result = array() ;               //Création du tableau à envoyer
+$result["status"] = "success";    //Initialisation du premier élément avec "sucess"
+
   // Vérification des identifiants
-  /*$req = $db->prepare('SELECT id, login, solde FROM user WHERE pseudo = :pseudo AND pass = :pass');
-  $req->execute(array(
-      'pseudo' => $_POST["pseudo"],
-      'pass' => $_POST["pass"]));
-
-  $resultat = $req->fetch(PDO::FETCH_ASSOC);*/
-
-  $pseudo = $_POST["pseudo"];
-  $pass = $_POST["pass"];
-  $requete = "SELECT id, login, solde FROM user WHERE pseudo=\"$pseudo\" AND pass=\"$pass\""; //Préparation de la requête
+  $pseudo = $_POST["login"];
+  $pass = $_POST["mdp"];
+  $requete = "SELECT * FROM user WHERE login=\"$pseudo\";"; //Préparation de la requête
   $resultat = $db->query($requete); //Récupération des informations
-
-  if ($resultat) {// si la requete réussie
-      $result = array() ; //Création du tableau à envoyer
-       //$result["status"]="success";
-       array_push($result["status"], "success");
-       //$result["id"]=$resultat["id"];
-       //$result["login"]=$resultat["login"];
-       //$result["solde"]=$resultat["solde"];
-  } else {
-    //$result["status"]="error";
-    array_push($result["status"], "error");
-    //$result["errorMessage"] = "Erreur dans la requete $requete" ;
+  $tempRes = $resultat->fetch();
+  if(strcmp($pass,$tempRes["MDP"]) == 0){
+    $result["log"] = "true";
+    $result["login"] = $pseudo;
+    $result["id"] = $tempRes["ID"];
+    $result["solde"] = $tempRes["SOLDE"];
+  }else{
+    $result["log"] = "false";
   }
-  //var_dump($result);
-  echo json_encode($result) ; //Encodage puis envoie.*/
-
-}
-//else var_dump($result);
+  echo json_encode($result) ; //Encodage puis envoie.
 ?>

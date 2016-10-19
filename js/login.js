@@ -1,5 +1,3 @@
-var idUser;
-
 // Toggle Function
 $('.toggle').click(function(){
   // Switches the Icon
@@ -13,10 +11,6 @@ $('.toggle').click(function(){
   }, "slow");
 });
 
-$(document).ready(function () {
-  $("#conf").keyup(checkPasswordMatch);
-});
-
 function checkPasswordMatch() {
     var password = $("#newpass").val();
     var confirmPassword = $("#conf").val();
@@ -28,41 +22,46 @@ function checkPasswordMatch() {
 }
 
 function login(){
-    $.post('ajax/connection.php', // Un script PHP que l'on va créer juste après
-      {
-        pseudo : $("#pseudo").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
-        pass : $("#pass").val()
-      },
-      function(data){
-        console.log(data);
-        if(data["status"] == 'success'){
-          // Le membre est connecté. Ajoutons lui un message dans la page HTML.
-          //console.log(data);
-          alert("success");
-          //$(document).write("<p>Vous avez été connecté avec succès !</p>");
-        }
-        else{
-          // Le membre n'a pas été connecté. (data vaut ici "failed")
-          //console.log(data);
-          alert("failed");
-          //$(document).write("<p>Erreur lors de la connexion...</p>");
-        }
-      },
-      'text'
-    );
-
-    /*$.ajax({	type: "POST",
-          url: "../ajax/connexion.php",
+    var login = $("#pseudo").val();
+    var mdp = $("#pass").val();
+    var data = "login="+login+"&mdp="+mdp;
+    $.ajax({	type: "POST",
+          url: "ajax/connection.php",
           data: data, // On passe les informations saisies à l'écran
-          success: function(data) {
+          success: function(data, textStatus, jqXHR) {
             console.log(JSON.parse(data));
             var result = JSON.parse(data) ;
-            displayResultContent(result);
+            changeUI(result);
           },
           error: function() {
             alert('Erreur dans la requ�te au serveur.');
           }
-    });*/
+    });
+  }
+
+  function changeUI(data){
+    if(data.log == true){
+      loger=true;
+      idUser=data.id;
+      loginUser=data.login;
+      soldeUser=parseInt(data.solde);
+      if($('#rememberme').is(":checked")){
+        //TODO
+        /*var titreT = $(e).parent().first().text();
+          var dateT = $(e).parent().children("span").eq(0).text();
+          var urlT = $(e).parent().children("a").attr("href");
+          var o = {titre:titreT, date:dateT, url:urlT};
+          if($.cookie("recherche_courante_news")){
+	           $.removeCookie("recherche_courante_news");
+          }
+          $.cookie("recherche_courante_news",JSON.stringify(recherche_courante_news),{expires : 1000});
+        */
+      }
+      $(".loger").css("display","inline-block");
+
+    }else{
+      loger=false;
+    }
   }
 
 function signup(){

@@ -1,5 +1,14 @@
-function init(){
+var idUser = "";
+var loginUser = "";
+var soldeUser = 0;
+var loger = false;
 
+$("document").ready(function () {
+  init();
+  $("#conf").keyup(checkPasswordMatch);
+});
+
+function init(){
   $.ajax({	type: "POST",
         url: "ajax/getSixRequete.php",
         success: function(data, textStatus, jqXHR) {
