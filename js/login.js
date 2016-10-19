@@ -24,17 +24,22 @@ function checkPasswordMatch() {
 function login(){
     var login = $("#pseudo").val();
     var mdp = $("#pass").val();
+    //console.log(login);
     var data = "login="+login+"&mdp="+mdp;
     $.ajax({	type: "POST",
           url: "ajax/connection.php",
+          async : false,
           data: data, // On passe les informations saisies à l'écran
           success: function(data, textStatus, jqXHR) {
             console.log(JSON.parse(data));
             var result = JSON.parse(data) ;
+            $("#newLogin").modal('hide');
             changeUI(result);
+            //$('#form_login').attr("onsubmit", "return true;")
+            //$('#form_login').submit();
           },
           error: function() {
-            alert('Erreur dans la requ�te au serveur.');
+
           }
     });
   }
@@ -46,25 +51,26 @@ function login(){
       loginUser=data.login;
       soldeUser=parseInt(data.solde);
       if($('#rememberme').is(":checked")){
-
-        var user = {
-          log : loger,
-          id : idUser,
-          login : loginUser,
-          solde : soldeUser
-        };
-
-        if($.cookie("user")){
-           $.removeCookie("user");
-        }
-        $.cookie("user",JSON.stringify(user),{expires:1000});
+        createCookie();
       }
-      $(".loger").css("display","inline-block");
-
+        connect();
+        console.log("Oui");
     }else{
       loger=false;
+      alert("Pseudo ou mot de passe incorrect");
     }
   }
+
+  function createCookie(){
+    var user = {
+      log : loger,
+      id : idUser,
+      login : loginUser,
+      solde : soldeUser
+    };
+    $.cookie("user",JSON.stringify(user),{expires:1000});
+  }
+
 
 function signup(){
     $.post('../ajax/inscription.php', // Un script PHP que l'on va créer juste après

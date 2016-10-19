@@ -5,3 +5,15 @@
 .nloger{
 
 }
+
+#disconnect{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#disconnectButton{
+}
+
+#creerLivre{
+  display:none;
+}
