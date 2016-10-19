@@ -24,8 +24,8 @@ function on_load_js()
 
 function load_wishlist(){
   $("#content").empty();
-  var data = idUser;
-  $("#content").empty();
+  var query = idUser;
+  var data ='data=' + query;
 
   $.ajax({	type: "POST",
         url: "ajax/getLivresSouhaites.php",
