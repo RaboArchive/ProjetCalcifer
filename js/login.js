@@ -46,16 +46,18 @@ function login(){
       loginUser=data.login;
       soldeUser=parseInt(data.solde);
       if($('#rememberme').is(":checked")){
-        //TODO
-        /*var titreT = $(e).parent().first().text();
-          var dateT = $(e).parent().children("span").eq(0).text();
-          var urlT = $(e).parent().children("a").attr("href");
-          var o = {titre:titreT, date:dateT, url:urlT};
-          if($.cookie("recherche_courante_news")){
-	           $.removeCookie("recherche_courante_news");
-          }
-          $.cookie("recherche_courante_news",JSON.stringify(recherche_courante_news),{expires : 1000});
-        */
+
+        var user = {
+          log : loger,
+          id : idUser,
+          login : loginUser,
+          solde : soldeUser
+        };
+
+        if($.cookie("user")){
+           $.removeCookie("user");
+        }
+        $.cookie("user",JSON.stringify(user),{expires:1000});
       }
       $(".loger").css("display","inline-block");
 
