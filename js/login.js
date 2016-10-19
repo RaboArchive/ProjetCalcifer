@@ -35,6 +35,7 @@ function login(){
           success: function(data, textStatus, jqXHR) {
             console.log(JSON.parse(data));
             var result = JSON.parse(data) ;
+            $("#newLogin").modal('hide');
             changeUI(result);
             //$('#form_login').attr("onsubmit", "return true;")
             //$('#form_login').submit();
@@ -42,7 +43,6 @@ function login(){
           error: function() {
             //$('#form_login').attr("onsubmit", "return true;")
             //$('#form_login').submit();
-            alert("Pseudo ou mot de passe incorrect");
           }
     });
   }
@@ -60,7 +60,7 @@ function login(){
         console.log("Oui");
     }else{
       loger=false;
-      console.log("Nope");
+      alert("Pseudo ou mot de passe incorrect");
     }
   }
 
