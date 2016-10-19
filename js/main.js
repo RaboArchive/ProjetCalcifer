@@ -95,3 +95,9 @@ function load_compte()
   $("#content").empty();
   $("#content").load("pages/compte.html");
 }
+
+
+function load_ajoutLivre() {
+  $("#content").empty();
+  $("#content").load("pages/depotlivre-form.html");
+}
