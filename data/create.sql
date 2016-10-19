@@ -14,7 +14,7 @@ CREATE TABLE LIVRE (
 	AUTEUR varchar(100) NOT NULL,
 	EDITION varchar(100),
 	COLLECTION varchar(100),
-	VALEUR int,	
+	VALEUR int,
 	RESUME text,
 	IMAGE text,
 	CONSTRAINT isbn_unique UNIQUE (ISBN)
