@@ -85,7 +85,7 @@ function displayListeSouhait(data){
 
     toPrint += '<div class="caption">';
 
-    toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
+    toPrint += '<h4 style="text-align:center"><a class="btn">';
     toPrint += '<i class="icon-zoom-in"></i></a>';
     console.log(data.livres[i]);
     toPrint += '<a class="btn" id="supp" onclick="suppListeSouhait('+data.livres[i].isbn+')"><i class="icon-trash"></i></a>';
