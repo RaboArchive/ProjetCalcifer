@@ -20,9 +20,10 @@ function livreDepInit() {
 
 
 function afficheLivresDep(result) {
+    var toPrint= "";
   for (var i=0; i < result.livres.length; i++) {
     //structure
-    var toPrint = '<li class="span3">';
+    toPrint += '<li class="span3">';
     toPrint += '<div class="thumbnail">';
     //?
     toPrint += '<a onclick="wantMore('+result.livres[i].isbn+')">';
