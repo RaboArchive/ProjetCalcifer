@@ -43,7 +43,7 @@ function connect() {
         $(".loger").css("display","inline-block");
         $(".nloger").css("display","none");
         $(".disloger").remove();
-        $("#disconnectButton").remove();
+        $("#deco").remove();
         var toPrint = '<li class="disloger">';
         toPrint += '<div class="thumbnail disconnect" id="bla bla"><h5 id="bienvenue">Bienvenue '+loginUser+' !</h5>';
         toPrint += '<p id="soldeUser">Solde: '+soldeUser+' points</p>';
@@ -74,7 +74,7 @@ function maj_user(data){
 
 function disconnect() {
   $(".disloger").remove();
-  $("#disconnectButton").remove();
+  $("#deco").remove();
   $(".nloger").css("display","inline-block");
   $(".loger").css("display","none");
   $.cookie("user", null);
