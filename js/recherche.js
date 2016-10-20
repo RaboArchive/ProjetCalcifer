@@ -129,10 +129,14 @@ function displayResultLatPanel(data){
     var toPrint = '<h4>Résultat détaillé</h4>';
     toPrint +='<div class="thumbnail">';
     toPrint += '<div class="caption">';
-    toPrint += '<h5>'+data.livres[0].nom+'</h5>';
+    toPrint += '<h5>'+data.livres[0].titre+'</h5>';
     toPrint += '<h4>'+data.livres[0].auteur+'</h4>';
-    toPrint += '<p>'+data.livres[0].resume+'</p>';
-
+    if (data.livres[0].resume){
+      toPrint += '<p>'+data.livres[0].resume+'</p>';
+    }
+    else {
+      toPrint += '<p>Pas de résumé disponible</p>';
+    }
     toPrint += '</div></div>';
 
     $("#sidebar").append(toPrint);

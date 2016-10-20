@@ -74,7 +74,7 @@ function displayListeSouhait(data){
     toPrint += '<li class="span3">';
     toPrint += '<div class="thumbnail">';
     //?
-    toPrint += "<a href=\"product.html?id="+data.livres[i].titre+"\">";
+    toPrint += '<a onclick="wantMore('+data.livres[i].isbn+')">';
     // titre
     toPrint += "<h5>"+data.livres[i].titre+"</h5>";
     // auteur

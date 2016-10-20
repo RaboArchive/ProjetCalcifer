@@ -63,7 +63,7 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
       toPrint += '<li class="span3">';
       toPrint += '<div class="thumbnail">';
       //?
-      toPrint += "<a href=\"product.html?id="+data.livres[i].titre+"\">";
+      toPrint += '<a onclick="wantMore('+data.livres[i].isbn+')">';
 
       toPrint += "<h5>"+data.livres[i].titre+"</h5>";
       toPrint += "<p>"+data.livres[i].auteur+"</p>";
