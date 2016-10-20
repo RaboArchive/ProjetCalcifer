@@ -70,6 +70,7 @@ function load_wishlist(){
 function displayListeSouhait(data){
   var toPrint = '<h4> Vos livres souhaités </h4> <ul class="thumbnails">';
   for (var i=0; i < data.livres.length; i++) {
+    var id = data.livres[i].isbn;
     //structure
     toPrint += '<li class="span3">';
     toPrint += '<div class="thumbnail">';
@@ -84,8 +85,10 @@ function displayListeSouhait(data){
 
     toPrint += '<div class="caption">';
 
-    toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
+    toPrint += '<h4 style="text-align:center"><a class="btn">';
     toPrint += '<i class="icon-zoom-in"></i></a>';
+    console.log(data.livres[i]);
+    toPrint += '<a class="btn" id="supp" onclick="suppListeSouhait('+data.livres[i].isbn+')"><i class="icon-trash"></i></a>';
     if(data.livres[i].val != null){
       toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
     } else {
@@ -95,3 +98,6 @@ function displayListeSouhait(data){
   }
   $("#content").append(toPrint);
 }
+ function suppListeSouhait(button){
+   alert(button);
+ }

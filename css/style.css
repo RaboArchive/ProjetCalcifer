@@ -175,3 +175,8 @@
  {
    font-weight: bold;
  }
+#supp:not(.button){
+  font-weight: bold;
+  background-color: #850606;
+
+}
