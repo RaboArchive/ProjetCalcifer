@@ -31,7 +31,7 @@ function displayResultContent(data){
       toPrint += '<li class="span3">';
       toPrint += '<div class="thumbnail">';
       //?
-      toPrint += '<a onclick="wantMore('+data.livres[i].isbn+')">';
+      toPrint += '<a onclick="wantMore('+data.livresdep[i].isbn+')">';
       // titre
       toPrint += "<h5>"+data.livresdep[i].titre+"</h5>";
       // auteur
