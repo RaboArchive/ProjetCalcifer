@@ -71,7 +71,12 @@ function displayResultDB(data){
       // titre
       toPrint += "<h5>"+data.livres[i].titre+"</h5>";
       // auteur
-      toPrint += "<p>"+data.livres[i].auteur+"</p>";
+      if (data.livres[i].auteur){
+        toPrint += "<p>"+data.livres[i].auteur+"</p>";
+      }
+      else {
+        toPrint += "<p>Auteur non renseigné</p>";
+      }
       // l'image
       toPrint += "<img src=\""+data.livres[i].image+"\" alt=\"\"/></a>";
 

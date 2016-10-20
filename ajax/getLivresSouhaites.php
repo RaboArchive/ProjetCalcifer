@@ -4,13 +4,14 @@ $result = array() ;               //Création du tableau à envoyer
 $result["status"] = "success";    //Initialisation du premier élément avec "sucess"
 $data =$_POST["data"];
 if(isset($data)){
-  $requete = "SELECT titre,auteur,image FROM livre L, LivreSouhaite ls WHERE IDUSER=\"$data\" and L.ISBN=ls.ISBN " ;
+  $requete = "SELECT titre,auteur,image,l.isbn FROM livre L, LivreSouhaite ls WHERE IDUSER=\"$data\" and L.ISBN=ls.ISBN " ;
 
   $livres = $db->query($requete); //Récupération des informations
   if ($livres) {
     $result["livres"] = array();
     foreach ($livres as $livreBD) {
       $livre = array();
+      $livre["isbn"] = $livreBD["ISBN"];
       $livre["titre"] = $livreBD["TITRE"];
       $livre["auteur"] = $livreBD["AUTEUR"];
       $livre["image"] = $livreBD["IMAGE"];
