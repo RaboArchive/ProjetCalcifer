@@ -41,7 +41,7 @@ function connect() {
         toPrint += '<div class="thumbnail disconnect" id="bla bla"><h5>Bienvenue '+loginUser+' !</h5>';
         toPrint += '<p>Solde: '+soldeUser+' points</p>';
         toPrint += '</div></li>';
-        toPrint += '<button class="btn btn-primary" id="deco" onclick="disconnect()">Déconnexion</button>';
+        toPrint += '<button class="btn btn-primary disconnect" id="deco" onclick="disconnect()">Déconnexion</button>';
 
         $("#topMenu").append(toPrint);
 }
