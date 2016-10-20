@@ -116,11 +116,3 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
 
   $("#content").append(toPrint);
 }
-
-
-
-
-function load_ajoutLivre() {
-  $("#content").empty();
-  $("#content").load("pages/depotlivre-form.html");
-}

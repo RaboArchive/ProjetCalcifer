@@ -1,3 +1,9 @@
+function load_ajoutLivre() {
+  $("#content").empty();
+  $("#sidebar").empty();
+  $("#content").load("pages/depotlivre-form.html");
+}
+
 function verifLivre() {
   var data= "ISBN="+$("#ISBN").val();
   console.log(data);

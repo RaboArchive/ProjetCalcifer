@@ -2,7 +2,7 @@ function lancerRecherche(){
   var query = $("#srchFld").val();
   var data ='data=' + query;
   $("#content").empty();
-
+  $("#sidebar").empty();
   $.ajax({	type: "POST",
         url: "ajax/rechercheLivres.php",
         data: data, // On passe les informations saisies à l'écran

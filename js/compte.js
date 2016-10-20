@@ -1,6 +1,7 @@
 function load_compte()
 {
   $("#content").empty();
+  $("#sidebar").empty();
   $("#content").load("pages/compte.html", function(){
       $.ajax({
     		url : 'ajax/getInfoUser.php?id='+idUser,
@@ -92,6 +93,7 @@ function load_info(){
 
 function load_wishlist(){
   $("#content").empty();
+  $("#sidebar").empty();
   var query = idUser;
   var data ='data=' + query;
 

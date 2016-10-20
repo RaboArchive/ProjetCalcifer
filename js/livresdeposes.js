@@ -1,5 +1,6 @@
 function load_livresdep() {
   $("#content").empty();
+  $("#sidebar").empty();
   $('#content').load('pages/livresDep.html',livreDepInit) ;
 }
 
@@ -68,6 +69,6 @@ function suppLivresDeposes(isbn){
               alert('Erreur dans la requete au serveur.');
             }
       });
-  }  
+  }
 
 }
