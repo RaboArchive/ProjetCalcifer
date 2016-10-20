@@ -7,7 +7,7 @@ $data = $_POST["data"];
 if(isset($data)){
   //$data = str_replace(" ", "_", $data);
   $requeteLivreNotice = "SELECT distinct titre,auteur,image,L.isbn FROM livre L, LIVREDEPOSE LD WHERE L.ISBN=LD.ISBN AND (L.titre LIKE \"%$data%\" OR L.auteur LIKE \"%$data%\")";
-  $requeteLivreDepose = "SELECT distinct titre,auteur, image,L.isbn FROM livre L, LIVREDEPOSE LD WHERE L.ISBN not in (select li.isbn from livre li ,livredepose lid where li.isbn=lid.isbn) AND (L.titre LIKE \"%$data%\" OR L.auteur LIKE \"%$data%\")";
+  $requeteLivreDepose = "SELECT distinct titre,auteur,image,L.isbn FROM livre L, LIVREDEPOSE LD WHERE L.ISBN not in (select li.isbn from livre li ,livredepose lid where li.isbn=lid.isbn) AND (L.titre LIKE \"%$data%\" OR L.auteur LIKE \"%$data%\")";
   $livres = $db->query($requeteLivreNotice); //Récupération des informations
   if ($livres) {
     $result["livres"] = array();
