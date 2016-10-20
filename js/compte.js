@@ -17,11 +17,29 @@ function load_compte_infos(data){
   $("#mon_compte_mail").val(data["MAIL"]);
   $("#mon_compte_password").val(data["MDP"]);
   $("#mon_compte_ville").val(data["VILLE"]);
+  loginUser = data["LOGIN"];
+  connect();
   $(".editable > span").attr("onclick","edit_info(this)");
+  $("#editable_password > span").attr("onclick","edit_info_password(this)");
+}
+
+function edit_info_password(e_button){
+  var e_label = e_button.previousElementSibling.previousElementSibling;
+  var e_input = e_button.previousElementSibling;
+  e_label.innerHTML = "Ancien mot de passe";
+  e_input.removeAttribute("readonly");
+  e_input.value = '';
+  e_input.focus();
+  e_button.innerHTML = "";
+  var text = '<div id="editable_new_password">'
+  +'<label for="mon_compte_new_password" style="display:block;float:left;width:200px;text-align:right;margin-right:10px;">Nouveau mot de passe</label>'
+  +'<input type="password" id="mon_compte_new_password">'
+  +'<span name="MDP" style="color:blue;text-decoration:underline;cursor:pointer;" onclick="valider_info_password_step1(this)">Valider</span>'
+  +'</div>';
+  $("#editable_password").after(text);
 }
 
 function edit_info(e){
-  console.log(e.previousElementSibling);
   e.previousElementSibling.removeAttribute("readonly");
   e.previousElementSibling.focus();
   e.innerHTML = "Valider";
@@ -33,6 +51,27 @@ function valider_info(e){
   update_info(e);
   e.innerHTML = "Modifier";
   e.setAttribute("onclick","edit_info(this)");
+}
+
+function valider_info_password_step1(e){
+  e.previousElementSibling.setAttribute("readonly","true");
+  $.ajax({
+    url : 'ajax/getInfoUser.php?id='+idUser,
+    type : 'GET',
+    //async : false, //Demander à M. Brouard
+    dataType : 'json',
+    success : valider_info_password_step2
+  });
+}
+
+function valider_info_password_step2(data){
+  if (data["MDP"]==$("#mon_compte_password").val()){
+    update_info(document.getElementById("mon_compte_new_password").nextElementSibling);
+  }
+  else {
+    alert("Mot de passe incorrect");
+    load_compte();
+  }
 }
 
 function update_info(e){
