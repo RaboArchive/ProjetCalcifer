@@ -10,16 +10,9 @@ $("document").ready(function () {
 
 function init(){
   $("#sidebar").empty();
-  $.ajax({	type: "POST",
-        url: "ajax/getSixRequete.php",
-        success: function(data, textStatus, jqXHR) {
-          var result = JSON.parse(data) ;
-          displayLastDepot(result);
-        },
-        error: function() {
-          alert('Erreur dans la requête au serveur.');
-        }
-  });
+
+  initAccueil();
+
   if ($.cookie("user")) {
     var val = JSON.parse($.cookie("user"));
     if (val.log) {
@@ -32,6 +25,20 @@ function init(){
   }
 }
 
+function initAccueil(){
+
+  $.ajax({	type: "POST",
+        url: "ajax/getSixRequete.php",
+        success: function(data, textStatus, jqXHR) {
+          var result = JSON.parse(data) ;
+          displayLastDepot(result);
+        },
+        error: function() {
+          alert('Erreur dans la requête au serveur.');
+        }
+  });
+}
+
 function connect() {
         $(".loger").css("display","inline-block");
         $(".nloger").css("display","none");
@@ -41,9 +48,10 @@ function connect() {
         toPrint += '<div class="thumbnail disconnect" id="bla bla"><h5 id="bienvenue">Bienvenue '+loginUser+' !</h5>';
         toPrint += '<p id="soldeUser">Solde: '+soldeUser+' points</p>';
         toPrint += '</div></li>';
-        toPrint += '<button class="btn btn-primary disconnect" id="deco" onclick="disconnect()">Déconnexion</button>';
+        toPrint += '<button class="btn btn-primary" id="deco" onclick="disconnect()">Déconnexion</button>';
 
         $("#topMenu").append(toPrint);
+        initAccueil();
 }
 
 function maj_navBar(){
@@ -71,6 +79,9 @@ function disconnect() {
   $(".loger").css("display","none");
   $.cookie("user", null);
   $.removeCookie("user");
+  loger=false;
+  $("#content").empty();
+  initAccueil();
 }
 
 
@@ -93,18 +104,16 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
       toPrint += '<div class="caption">';
       //toPrint += "<span onclick=\"wantMore("+data.livres[i].idlivre+")\"><h5>"+data.livres[i].nom+"</h5></span>";
 
+      if (loger){
+        toPrint += '<h4 style="text-align:center"><a class="btn" onclick="infoDeposeur('+data.livres[i].isbn+')">';
+        toPrint += '<i class="icon-zoom-in"></i></a>' ;
+        toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter<i class="icon-shopping-cart"></i></a>';
+      }
 
-      toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
-      toPrint += '<i class="icon-zoom-in"></i></a>' ;
-      toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter<i class="icon-shopping-cart"></i></a>';
-
-      if(data.livres[i].val != null){
-        toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
-      } else {
-        toPrint +='</h4>';
+      toPrint +='</h4>';
     }
     toPrint += "</div></div></li>";
-  }
+
   $("#content").append(toPrint);
 }
 

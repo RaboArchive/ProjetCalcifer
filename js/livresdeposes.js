@@ -54,16 +54,20 @@ function afficheLivresDep(result) {
 }
 
 function suppLivresDeposes(isbn){
-  var data = "isbn="+isbn+"&id="+idUser;
-  console.log(data);
-  $.ajax({	type: "POST",
-        url: "ajax/suppLivresDeposes.php",
-        data: data, // On passe les informations saisies à l'écran
-        success: function(data, textStatus, jqXHR) {
-          load_livresdep();
-        },
-        error: function() {
-          alert('Erreur dans la requete au serveur.');
-        }
-  });
+  var r = confirm("Supprimer le livre?");
+  if (r == true) {
+      var data = "isbn="+isbn+"&id="+idUser;
+      console.log(data);
+      $.ajax({	type: "POST",
+            url: "ajax/suppLivresDeposes.php",
+            data: data, // On passe les informations saisies à l'écran
+            success: function(data, textStatus, jqXHR) {
+              load_livresdep();
+            },
+            error: function() {
+              alert('Erreur dans la requete au serveur.');
+            }
+      });
+  }  
+
 }
