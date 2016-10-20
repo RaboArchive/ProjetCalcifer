@@ -77,8 +77,8 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
 
 
       toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
-      toPrint += '<i class="icon-zoom-in"></i></a>' ;
-      toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter<i class="icon-shopping-cart"></i></a>';
+      toPrint += '<i style="color:black;" class="icon-refresh"></i></a>' ;
+      toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')"><i style="color:#850606;" class="icon-heart"></i></a>';
 
       if(data.livres[i].val != null){
         toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
