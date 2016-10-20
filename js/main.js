@@ -34,7 +34,8 @@ function init(){
 function connect() {
         $(".loger").css("display","inline-block");
         $(".nloger").css("display","none");
-
+        $(".disloger").remove();
+        $("#disconnectButton").remove();
         var toPrint = '<li class="disloger">';
         toPrint += '<div id="disconnect"><h5>Bienvenue '+loginUser+' !</h5>';
         toPrint += '<p>Solde: '+soldeUser+' points</p>';
