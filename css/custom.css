@@ -17,3 +17,15 @@
 #creerLivre{
   display:none;
 }
+
+li {
+  text-decoration: none;
+}
+
+ul {
+  text-decoration: none;
+}
+
+.span3 {
+text-decoration: none; 
+}
