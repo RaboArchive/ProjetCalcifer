@@ -199,3 +199,12 @@
 a:hover{
   cursor: pointer;
 }
+.btn-primary{
+  color : black;
+  background-color: #ffa500;
+    background-image: linear-gradient(to bottom, #ffc04c,#ffa500);
+}
+.btn-primary:hover{
+  color : #505050;
+  background-color: #ffa515;
+}
