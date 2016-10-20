@@ -38,10 +38,10 @@ function connect() {
         $(".disloger").remove();
         $("#disconnectButton").remove();
         var toPrint = '<li class="disloger">';
-        toPrint += '<div id="disconnect"><h5>Bienvenue '+loginUser+' !</h5>';
+        toPrint += '<div class="thumbnail disconnect" id="bla bla"><h5>Bienvenue '+loginUser+' !</h5>';
         toPrint += '<p>Solde: '+soldeUser+' points</p>';
         toPrint += '</div></li>';
-        toPrint += '<li id="disconnectButton" class="center-block"> <button class="btn btn-primary center-block" onclick="disconnect()">Déconnexion</button></li>';
+        toPrint += '<button class="btn btn-primary" id="deco" onclick="disconnect()">Déconnexion</button>';
 
         $("#topMenu").append(toPrint);
 }

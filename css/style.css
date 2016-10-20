@@ -180,3 +180,22 @@
   background-color: #850606;
 
 }
+#srchFld
+{
+  margin: auto;
+}
+
+.disconnect:not(.thumbnail)
+{
+  margin: none;
+  padding: none;
+  background-color: white;
+}
+
+#deco{
+  margin-left: 15px;
+  margin-top: 30px;
+}
+a:hover{
+  cursor: pointer;
+}
