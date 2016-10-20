@@ -1,26 +1,52 @@
 function load_compte()
 {
   $("#content").empty();
-  $("#content").load("pages/compte.html",function(){
-    document.getElementById("pseudo").value = "BLANC DE POULET";
-    document.getElementById("newemail").value = "SAUCE BLANCHE";
-    document.getElementById("newville").value = "MOULE FRITE";
-
+  $("#content").load("pages/compte.html", function(){
+      $.ajax({
+    		url : 'ajax/getInfoUser.php?id='+idUser,
+    		type : 'GET',
+    		//async : false, //Demander à M. Brouard
+    		dataType : 'json',
+    		success : load_compte_infos
+    	});
   });
-
 }
-function on_load(){
-  var temp = "Tête de bite";
-  $("#niketamere").val();
-  var x = document.getElementById("content");
 
-
+function load_compte_infos(data){
+  $("#mon_compte_pseudo").val(data["LOGIN"]);
+  $("#mon_compte_mail").val(data["MAIL"]);
+  $("#mon_compte_password").val(data["MDP"]);
+  $("#mon_compte_ville").val(data["VILLE"]);
+  $(".editable > span").attr("onclick","edit_info(this)");
 }
-function on_load_js()
-{
-  document.getElementById("niketamere").value("WALLAH");
 
+function edit_info(e){
+  console.log(e.previousElementSibling);
+  e.previousElementSibling.removeAttribute("readonly");
+  e.previousElementSibling.focus();
+  e.innerHTML = "Valider";
+  e.setAttribute("onclick","valider_info(this)");
 }
+
+function valider_info(e){
+  e.previousElementSibling.setAttribute("readonly","true");
+  update_info(e);
+  e.innerHTML = "Modifier";
+  e.setAttribute("onclick","edit_info(this)");
+}
+
+function update_info(e){
+  var data='id='+idUser+'&col='+e.getAttribute("name")+'&val='+e.previousElementSibling.value;
+  $.ajax({
+    url : 'ajax/setInfoUser.php',
+    type : 'POST',
+    data : data,
+    async : false,
+    //dataType : 'json',
+    success : load_compte
+  });
+}
+
 
 function load_wishlist(){
   $("#content").empty();

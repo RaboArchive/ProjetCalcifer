@@ -90,12 +90,6 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
 
 
 
-function load_compte()
-{
-  $("#content").empty();
-  $("#content").load("pages/compte.html");
-}
-
 
 function load_ajoutLivre() {
   $("#content").empty();
