@@ -6,18 +6,19 @@ $result["status"] = "success";    //Initialisation du premier élément avec "su
 $data = $_POST["data"];
 
 if(isset($data)){
-  $data = str_replace(" ", "_", $data);
-  $requete = 'SELECT L.ID, L.AUTEUR, L.NOM, L.VALEUR, L.DATEPUB, L.ETAT, L.RESUME FROM LIVRE L, LIVREDEP LP WHERE L.ID=LP.IDLIVRE AND IDUSER='+$data; //Préparation de la requête
+  $requete = "SELECT L.ISBN, L.AUTEUR, L.TITRE, L.VALEUR, LP.ETAT, L.RESUME, L.IMAGE FROM LIVRE L, LIVREDEPOSE LP WHERE L.ISBN=LP.ISBN AND LP.IDUSER=$data"; //Préparation de la requête
   $livres = $db->query($requete); //Récupération des informations
   if ($livres) {
     $result["livres"] = array();
     foreach ($livres as $livreBD) {
       $livre = array();
-      $livre["idlivre"] = $livreBD["ID"];
-      $livre["nom"] = $livreBD["NOM"];
+      $livre["isbn"] = $livreBD["ISBN"];
+      $livre["titre"] = $livreBD["TITRE"];
       $livre["auteur"] = $livreBD["AUTEUR"];
       $livre["val"] = $livreBD["VALEUR"];
       $livre["etat"] = $livreBD["ETAT"];
+      $livre["resume"] = $livreBD["RESUME"];
+      $livre["image"] = $livreBD["IMAGE"];
       array_push($result["livres"], $livre); //Ajoute le livre créé à la liste de livres
     }
   }
