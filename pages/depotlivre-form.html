@@ -1,28 +1,24 @@
       <div class="form">
 
           <h2>Déposer un livre</h2>
-          <!--<form class="deposeLivre">-->
 
             <div id="verifLivre">
             <input id ="ISBN" required type = "int" placeholder="ISBN"/>
             <button id="addLivreButton" onclick="verifLivre()">Ajouter livre</button>
             </div>
-          <!--</form>-->
-
-          <!--<form class="creerLivre">-->
+            
             <div id="creerLivre">
             <input id="titre" required type="text" placeholder="*Titre"/>
             <input id="auteur" required type="text" placeholder="*Auteur"/>
             <input id="valeur" type="text" placeholder="Valeur"/>
-            <input id="datepub" type="text" placeholder="Date de publication"/>
             <input id="etat" type="text" placeholder="Etat"/>
             <input id="edition" type="text" placeholder="Edition"/>
             <input id="collection" type="text" placeholder="Collection"/>
             <input id="resume" type="text" placeholder="Résumé"/>
             <input id="image" type="text" placeholder="Image"/>
-            <button id="creerLivreButton" onclick="creerLivre()">Déposer le livre</button>
+            <button class="btn btn-primary" id="creerLivreButton" onclick="creerLivre()">Déposer le livre</button>
             </div>
-          <!--</form>-->
+
 
             <script type="text/javascript" src="js/ajoutLivre.js"></script>
 

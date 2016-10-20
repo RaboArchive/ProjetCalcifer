@@ -54,7 +54,7 @@ function ajouterLivre() {
 
 function creerLivre() {
 
-  var data ="ISBN="+$("#ISBN").val()+"&ETAT="+$("#etat").val()+"&TITRE="+$("#titre").val()+"&AUTEUR="+$("#auteur").val()+"&VALEUR="+$("#valeur").val()+"&DATEPUB="+$("#datepub").val();
+  var data ="ISBN="+$("#ISBN").val()+"&ETAT="+$("#etat").val()+"&TITRE="+$("#titre").val()+"&AUTEUR="+$("#auteur").val()+"&VALEUR="+$("#valeur").val();
   data +="&EDITION="+$("#edition").val()+"&COLLECTION="+$("#collection").val();
   data +="&RESUME="+$("#resume").val()+"&URL="+$("#image").val()+"&ID="+idUser;
   console.log(data);

@@ -18,14 +18,10 @@
   display:none;
 }
 
-li {
-  text-decoration: none;
-}
-
-ul {
-  text-decoration: none;
-}
-
 .span3 {
-text-decoration: none; 
+text-decoration: none;
+}
+
+#creerLivre {
+  margin-top: 30px;
 }
