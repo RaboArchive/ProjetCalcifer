@@ -73,25 +73,6 @@ function login(){
 
 
 function signup(){
-    /*$.post('../ajax/inscription.php', // Un script PHP que l'on va créer juste après
-      {
-        pseudo : $("#newpseudo").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
-        pass : $("#newpass").val(),
-        mail : $("#newmail").val(),
-        ville : $("#newville").val()
-      },
-      function(data){
-        if(data == 'Success'){
-          // Le membre est connecté. Ajoutons lui un message dans la page HTML.
-          $(document).write("<p>Vous avez été connecté avec succès !</p>");
-        }
-        else{
-          // Le membre n'a pas été connecté. (data vaut ici "failed")
-          $(document).write("<p>Erreur lors de la connexion...</p>");
-        }
-      },
-      'text'
-    );*/
 
     var pseudo = $("#newpseudo").val();
     var pass = $("#newpass").val();
@@ -109,6 +90,12 @@ function signup(){
             $("#newLogin").modal('hide');
             if (result.status=="success"){
               alert("Inscription réussi");
+              $("#clickLogin").click();
+              setTimeout(function(){
+                  $("#styloID").click();
+              }, 250);
+
+
             }
             else alert(result.errorMessage);
             //changeUI(result);
