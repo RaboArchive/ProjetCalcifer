@@ -208,3 +208,9 @@ a:hover{
   color : #505050;
   background-color: #ff504c;
 }
+
+#sidebar:not(.span3){
+  position:absolute;
+  top:30%;
+  right:30%;
+}

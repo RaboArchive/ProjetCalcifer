@@ -37,8 +37,7 @@ function afficheLivresDep(result) {
 
     toPrint += '<div class="caption">';
 
-    toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+result.livres[i].isbn+'">';
-    toPrint += '<i class="icon-zoom-in"></i></a>';
+    toPrint += '<h4 style="text-align:center">';
     toPrint += '<a id="supp" class="btn" onclick="suppLivresDeposes('+result.livres[i].isbn+')"><i class="icon-trash"></i></a></h4>';
 /*
     if(result.livres[i].val != null){

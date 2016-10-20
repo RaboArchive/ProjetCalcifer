@@ -10,7 +10,7 @@ $("document").ready(function () {
 
 function init(){
   $("#sidebar").empty();
-
+  $("#srchFld").val("");
   initAccueil();
 
   if ($.cookie("user")) {
@@ -106,8 +106,8 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
 
       if (loger){
         toPrint += '<h4 style="text-align:center"><a class="btn" onclick="infoDeposeur('+data.livres[i].isbn+')">';
-        toPrint += '<i class="icon-zoom-in"></i></a>' ;
-        toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter<i class="icon-shopping-cart"></i></a>';
+        toPrint += 'Je le veux ! </a>' ;
+        toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')"><i class="icon-heart" style="color:red"></i></a>';
       }
 
       toPrint +='</h4>';

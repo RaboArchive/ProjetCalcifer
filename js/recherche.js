@@ -47,7 +47,7 @@ function displayResultDB(data){
       toPrint += '<div class="caption">';
 
       toPrint += '<h4 style="text-align:center"><a class="btn" onclick="infoDeposeur('+data.livres[i].isbn+')">';
-      toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter <i class="icon-shopping-cart"></i></a>';
+      toPrint += 'Je le veux !</a> <a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')"><i class="icon-heart" style="color:red"></i></a>';
       if(data.livres[i].val != null){
         toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
       } else {
@@ -80,10 +80,10 @@ function displayResultContent(data){
 
       toPrint += '<div class="caption">';
 
-      toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livresdep[i].titre+'">';
-      toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" onclick="ajouterListeSouhait('+data.livresdep[i].isbn+')">Ajouter<i class="icon-shopping-cart"></i></a>';
+      toPrint += '<h4 style="text-align:center">';
+      toPrint += '<a class="btn" onclick="ajouterListeSouhait('+data.livresdep[i].isbn+')"><i class="icon-heart" style="color:red"></i></a>';
       if(data.livresdep[i].val != null){
-        toPrint += '<a class="btn btn-primary" href="#">'+data.livresdep[i].val+'</a></h4>';
+        toPrint += '<a class="btn btn-primary">'+data.livresdep[i].val+'</a></h4>';
       } else {
         toPrint +='</h4>';
       }
