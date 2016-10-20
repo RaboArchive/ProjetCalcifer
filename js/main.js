@@ -38,12 +38,30 @@ function connect() {
         $(".disloger").remove();
         $("#disconnectButton").remove();
         var toPrint = '<li class="disloger">';
-        toPrint += '<div class="thumbnail disconnect" id="bla bla"><h5>Bienvenue '+loginUser+' !</h5>';
-        toPrint += '<p>Solde: '+soldeUser+' points</p>';
+        toPrint += '<div class="thumbnail disconnect" id="bla bla"><h5 id="bienvenue">Bienvenue '+loginUser+' !</h5>';
+        toPrint += '<p id="soldeUser">Solde: '+soldeUser+' points</p>';
         toPrint += '</div></li>';
         toPrint += '<button class="btn btn-primary disconnect" id="deco" onclick="disconnect()">Déconnexion</button>';
 
         $("#topMenu").append(toPrint);
+}
+
+function maj_navBar(){
+  $.ajax({
+    url : 'ajax/getInfoUser.php?id='+idUser,
+    type : 'GET',
+    async : false,
+    dataType : 'json',
+    success : maj_user
+  });
+}
+
+function maj_user(data){
+  loginUser = data["LOGIN"];
+  soldeUser = data["SOLDE"];
+  $('#bienvenue').html('Bienvenue '+loginUser+' !');
+  $("#soldeUser").html('Solde: '+soldeUser+' points');
+  createCookie();
 }
 
 function disconnect() {

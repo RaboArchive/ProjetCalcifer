@@ -57,7 +57,7 @@ function valider_info_password_step1(e){
   $.ajax({
     url : 'ajax/getInfoUser.php?id='+idUser,
     type : 'GET',
-    //async : false, //Demander à M. Brouard
+    async : false,
     dataType : 'json',
     success : valider_info_password_step2
   });
@@ -80,9 +80,13 @@ function update_info(e){
     type : 'POST',
     data : data,
     async : false,
-    //dataType : 'json',
-    success : load_compte
+    success : load_info
   });
+}
+
+function load_info(){
+  maj_navBar();
+  load_compte();
 }
 
 
