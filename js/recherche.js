@@ -46,7 +46,7 @@ function displayResultDB(data){
 
       toPrint += '<div class="caption">';
 
-      toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
+      toPrint += '<h4 style="text-align:center"><a class="btn" onclick="infoDeposeur('+data.livres[i].isbn+')">';
       toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter <i class="icon-shopping-cart"></i></a>';
       if(data.livres[i].val != null){
         toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
@@ -93,6 +93,22 @@ function displayResultContent(data){
   $("#content").append(toPrint);
 }
 
+function infoDeposeur(isbn){
+  var data ="isbn="+isbn;
+
+  $.ajax({	type: "POST",
+        url: "ajax/getUserTroc.php",
+        data: data, // On passe les informations saisies à l'écran
+        success: function(data, textStatus, jqXHR) {
+          var result = JSON.parse(data) ;
+          console.log(result);
+          displayInfoDeposeur(result);
+        },
+        error: function() {
+          alert('Erreur dans la requete au serveur.');
+        }
+  });
+}
 
 function ajouterListeSouhait(isbn){
   var data ="isbn="+isbn+"&user="+idUser;
@@ -126,6 +142,34 @@ function wantMore(id){
         }
   });
 }
+
+function displayInfoDeposeur(data){
+  $("#content").empty();
+
+  var toPrint = '<h4> Informations des déposeurs </h4> <ul class="thumbnails">';
+
+  for (var i=0; i < data.users.length; i++) {
+    //structure
+    toPrint += '<li class="span3">';
+    toPrint += '<div class="thumbnail">';
+    //?
+    toPrint += '<a>';
+    // titre
+    toPrint += "<h5>"+data.users[i].login+"</h5>";
+    // auteur
+    toPrint += "<p>Ville : "+data.users[i].ville+"</p>";
+    // l'image
+    toPrint += "<p>Le contacter : "+data.users[i].mail+"</p></a>";
+
+    }
+    toPrint += "</div></li>";
+
+  $("#content").append(toPrint);
+
+}
+
+
+
 
 function displayResultLatPanel(data){
     $("#sidebar").empty();
