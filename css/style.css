@@ -201,10 +201,10 @@ a:hover{
 }
 .btn-primary{
   color : black;
-  background-color: #ffa500;
-    background-image: linear-gradient(to bottom, #ffc04c,#ffa500);
+  background-color: #ff5000;
+    background-image: linear-gradient(to bottom, #ffA04c,#ff5000);
 }
 .btn-primary:hover{
   color : #505050;
-  background-color: #ffa515;
+  background-color: #ff504c;
 }
