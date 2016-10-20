@@ -82,9 +82,7 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
       } else {
         toPrint +='</h4>';
     }
-
     toPrint += "</div></div></li>";
-
   }
   $("#content").append(toPrint);
 }
