@@ -36,8 +36,8 @@ function afficheLivresDep(result) {
     toPrint += '<div class="caption">';
 
     toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+result.livres[i].isbn+'">';
-    toPrint += '<i class="icon-zoom-in"></i></a></h4>';
-
+    toPrint += '<i class="icon-zoom-in"></i></a>';
+    toPrint += '<a id="supp" class="btn" onclick="suppLivresDeposes('+result.livres[i].isbn+')"><i class="icon-trash"></i></a></h4>';
 /*
     if(result.livres[i].val != null){
       toPrint += '<a class="btn btn-primary" href="#">'+result.livres[i].val+'</a></h4>';
@@ -50,4 +50,19 @@ function afficheLivresDep(result) {
   }
 
   $("#content").append(toPrint);
+}
+
+function suppLivresDeposes(isbn){
+  var data = "isbn="+isbn+"&id="+idUser;
+  console.log(data);
+  $.ajax({	type: "POST",
+        url: "ajax/suppLivresDeposes.php",
+        data: data, // On passe les informations saisies à l'écran
+        success: function(data, textStatus, jqXHR) {
+          load_livresdep();
+        },
+        error: function() {
+          alert('Erreur dans la requete au serveur.');
+        }
+  });
 }
