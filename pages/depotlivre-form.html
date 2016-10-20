@@ -1,13 +1,15 @@
       <div class="form">
 
           <h2>Déposer un livre</h2>
-          <form class="deposeLivre">
+          <!--<form class="deposeLivre">-->
 
             <div id="verifLivre">
-            <input id ="ISBN" required type = "INTEGER" placeholder="ISBN"/>
-            <button id="addLivreButton" onclick="verifLivre">Ajouter livre</button>
+            <input id ="ISBN" required type = "int" placeholder="ISBN"/>
+            <button id="addLivreButton" onclick="verifLivre()">Ajouter livre</button>
             </div>
+          <!--</form>-->
 
+          <!--<form class="creerLivre">-->
             <div id="creerLivre">
             <input id="titre" required type="text" placeholder="*Titre"/>
             <input id="auteur" required type="text" placeholder="*Auteur"/>
@@ -18,9 +20,10 @@
             <input id="collection" type="text" placeholder="Collection"/>
             <input id="resume" type="text" placeholder="Résumé"/>
             <input id="image" type="text" placeholder="Image"/>
-            <button id="creerLivreButton" onclick="creerLivre">Déposer le livre</button>
+            <button id="creerLivreButton" onclick="creerLivre()">Déposer le livre</button>
             </div>
+          <!--</form>-->
 
-            <script type="text/javascript" src="js/recherche.js"></script>
-          </form>
+            <script type="text/javascript" src="js/ajoutLivre.js"></script>
+
         </div>

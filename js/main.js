@@ -16,7 +16,7 @@ function init(){
           displayLastDepot(result);
         },
         error: function() {
-          alert('Erreur dans la requ�te au serveur.');
+          alert('Erreur dans la requête au serveur.');
         }
   });
   if ($.cookie("user")) {
@@ -45,8 +45,8 @@ function connect() {
 }
 
 function disconnect() {
-  $(".disloger").css("display","none");
-  $("#disconnectButton").css("display","none");
+  $(".disloger").remove();
+  $("#disconnectButton").remove();
   $(".nloger").css("display","inline-block");
   $(".loger").css("display","none");
   $.cookie("user", null);
@@ -56,7 +56,7 @@ function disconnect() {
 
 function displayLastDepot(data){ // Affiche les derniers livres deposés par défaut sur la page d'accueil
   $("#content").empty();
-    var toPrint = '<h4> Derniers livres ajoutés </h4> <ul class="thumbnails">';
+    var toPrint = '<h4> Derniers livres déposés </h4> <ul class="thumbnails">';
     for (var i=0; i < data.livres.length; i++) {
       //structure
       toPrint += '<li class="span3">';
@@ -75,7 +75,7 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
 
 
       toPrint += '<h4 style="text-align:center"><a class="btn" href="product.html?id='+data.livres[i].titre+'">';
-      toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" href="#">Ajouter <i class="icon-shopping-cart"></i></a>';
+      toPrint += '<i class="icon-zoom-in"></i></a> <a class="btn" onclick="ajouterListeSouhait('+data.livres[i].isbn+')">Ajouter<i class="icon-shopping-cart"></i></a>';
       if(data.livres[i].val != null){
         toPrint += '<a class="btn btn-primary" href="#">'+data.livres[i].val+'</a></h4>';
       } else {
@@ -90,8 +90,8 @@ function displayLastDepot(data){ // Affiche les derniers livres deposés par dé
 
 
 
-function load_compte()
-{
+
+function load_ajoutLivre() {
   $("#content").empty();
-  $("#content").load("pages/compte.html");
+  $("#content").load("pages/depotlivre-form.html");
 }

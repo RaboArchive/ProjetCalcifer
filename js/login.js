@@ -73,7 +73,7 @@ function login(){
 
 
 function signup(){
-    $.post('../ajax/inscription.php', // Un script PHP que l'on va créer juste après
+    /*$.post('../ajax/inscription.php', // Un script PHP que l'on va créer juste après
       {
         pseudo : $("#newpseudo").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
         pass : $("#newpass").val(),
@@ -91,5 +91,31 @@ function signup(){
         }
       },
       'text'
-    );
+    );*/
+
+    var pseudo = $("#newpseudo").val();
+    var pass = $("#newpass").val();
+    var mail = $("#newmail").val();
+    var ville = $("#newville").val();
+    //console.log(login);
+    var data = "pseudo="+pseudo+"&pass="+pass+"&mail="+mail+"&ville="+ville;
+    $.ajax({	type: "POST",
+          url: "ajax/inscription.php",
+          async : false,
+          data: data, // On passe les informations saisies à l'écran
+          success: function(data, textStatus, jqXHR) {
+            console.log(JSON.parse(data));
+            var result = JSON.parse(data) ;
+            $("#newLogin").modal('hide');
+            if (result.status=="success"){
+              alert("Inscription réussi");
+            }
+            else alert(result.errorMessage);
+            //changeUI(result);
+          },
+          error: function() {
+              alert("Erreur interne du serveur");
+          }
+    });
+
   }

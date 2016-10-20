@@ -46,14 +46,14 @@
 	<span class="icon-bar"></span>
 </a>
   <div class="navbar-inner">
-    <a class="brand" href="index.html"><img src="data/logoCal.png" height="47" width="193" alt="Calcifer"/></a>
+    <a class="brand" onclick="init()"><img src="data/logoCal.png" height="47" width="193" alt="Calcifer"/></a>
   		<!--<form class="form-inline navbar-search" > -->
   	<input id="srchFld" class="srchTxt" type="text" onKeyPress="if(event.keyCode == 13) lancerRecherche();"/>
   	<button id="submitButton" class="btn btn-primary" onclick="lancerRecherche()">Lancer la recherche</button>
       		<!--</form> -->
     <ul id="topMenu" class="nav pull-right">
       <li class="loger" onclick="load_wishlist()"><a>Liste de souhait</a></li>
-    	<li class="loger"><a>Livres déposés</a></li>
+    	<li class="loger" onclick="load_ajoutLivre()"><a>Livres déposés</a></li>
       <li class="loger" onclick="load_compte()"><a>Compte</a></li>
     	<li class="nloger">
     	<a href="#newLogin" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
@@ -65,15 +65,14 @@
             <div class="form">
               <h2>Se connecter</h2>
               <form id="form_login" method="post" onsubmit="login(); return false;">
-                <input id="pseudo" required type="text" placeholder="Pseudonyme" name="pseudo" />
-                <input id="pass" required type="text" placeholder="Mot de passe" name="pass_hash" /><br>
+                <input id="pseudo" required type="text" placeholder="Pseudonyme" name="pseudo"/>
+                <input id="pass" required type="password" placeholder="Mot de passe" name="pass_hash"/><br>
                 <input id="rememberme" type="checkbox">   Se souvenir de moi
                 <button type="submit" id="bouton-login">Connexion</button>
               </form>
             </div>
             <div class="form">
 
-<<<<<<< HEAD
         <h2>Creer un compte</h2>
         <form id="form_signup" method="post" onsubmit="signup(); return false;">
           <input id="newpseudo" required type="text" placeholder="*Pseudonyme"/>
@@ -85,23 +84,10 @@
           <button type="submit">Creer</button>
         </form>
         <div class="registrationFormAlert" id="divCheckPasswordMatch">
-=======
-            <h2>Creer un compte</h2>
-              <form>
-                <input id="newpseudo" required type="text" placeholder="*Pseudonyme"/>
-                <input id="newpass" required type="password" placeholder="*Mot de passe"/>
-                <input id="conf" required type="password" placeholder="*Confirmer mot de passe"/>
-
-                <input id="newmail" type="email" placeholder="Email"/>
-                <input id="newville" type="ville" placeholder="Ville"/>
-                <button onclick="signup()">Creer</button>
-              </form>
-              <div class="registrationFormAlert" id="divCheckPasswordMatch">
-              </div>
-            </div>
-            <div class="cta"><a href="http://www.omfgdogs.com">Mot de passe oublié ?</a></div>
-          </div>
->>>>>>> 31053b2e521d087a20d2122e2f28436215c97ec2
+        </div>
+        </div>
+        <div class="cta"><a href="http://www.omfgdogs.com">Mot de passe oublié ?</a></div>
+        </div>
         </div>
     	</li>
     </ul>
