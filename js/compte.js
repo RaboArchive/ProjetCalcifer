@@ -18,7 +18,6 @@ function load_compte_infos(data){
   $("#mon_compte_password").val(data["MDP"]);
   $("#mon_compte_ville").val(data["VILLE"]);
   loginUser = data["LOGIN"];
-//  connect();
   $(".editable > span").attr("onclick","edit_info(this)");
   $("#editable_password > span").attr("onclick","edit_info_password(this)");
 }
